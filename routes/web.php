@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
+    $a = 'hi';
+    $b = 2;
+    $c = 3;
+    $d = $b + $c;
+    return response()->json(['hello'=> 'world', 'sum'=>$d]);
 });

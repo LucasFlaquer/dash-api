@@ -60,3 +60,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Testing
+Para testar a alicação primeiramente deve preparar o ambiente de teste:
+alterar o arquivo phpunit.xml para que ele rode os testes com as configurações corretas:
+``` 
+    <server name="DB_CONNECTION" value="sqlite"/>
+    <server name="DB_DATABASE" value="./database/test.sqlite"/>
+```
+criar o aquivo test.sqlite dentro da pasta database
+testes que envolvam o banco dee dados tem que estender da class do laravel e não do phpUnit se não da erro
+verificar se tem a lib php-sqlite3 se não instalar.
+# Linux:
+sudo apt-get install php-sqlite3
