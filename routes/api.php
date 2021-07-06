@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,11 +14,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/users', function (Request $request) {
-    $users = \App\Models\User::all();
-    print($users);
-    return response()->json(['users'=>$users]);
-});
+Route::get('/users', [UserController::class, 'index']);
+
+Route::post('/users', [UserController::class, 'store']);
+
 //Route::middleware('auth:api')->get('/users', function (Request $request) {
 //    return $request->user();
 //});
