@@ -22,16 +22,17 @@ class UserController extends Controller
         );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request): \Illuminate\Http\Response
-    {
 
-        return response()->status(201);
+    public function store(Request $request)
+    {
+        $data = [
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password)
+        ];
+        $user = new User($data);
+        $user->save();
+        return response()->json(User::all())->status(201);
     }
 
     /**
